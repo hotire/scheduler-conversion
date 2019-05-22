@@ -1,7 +1,6 @@
 package com.kakao.hotire.schedulerconversion;
 
 
-import com.kakao.hotire.schedulerconversion.config.Mode;
 import com.kakao.hotire.schedulerconversion.config.SchedulerConversionRegister;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -13,5 +12,4 @@ import org.springframework.context.annotation.Import;
 @Retention(RetentionPolicy.RUNTIME)
 @Import(SchedulerConversionRegister.class)
 public @interface EnableSchedulerConversion {
-  Mode mode() default Mode.INCLUDE;
 }

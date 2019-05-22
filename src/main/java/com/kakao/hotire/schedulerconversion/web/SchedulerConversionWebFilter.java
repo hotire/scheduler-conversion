@@ -1,6 +1,6 @@
 package com.kakao.hotire.schedulerconversion.web;
 
-import com.kakaocorp.mis.bakery.schedulerconversion.config.Mode;
+import com.kakao.hotire.schedulerconversion.config.Mode;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.server.RequestPath;
