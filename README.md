@@ -4,9 +4,18 @@
 
 > Convert reactor thread into elastic thread
 
-## How to use 
+# How to use 
 
-### Config
+## Installation
+
+### Maven
+```
+Preparing 
+```
+
+## Config
+
+### @EnableSchedulerConversion
 
 ```
 @EnableSchedulerConversion
@@ -103,4 +112,3 @@ public interface ServerRequest {
 해당 메서드들을 오버라이딩 한다.
 
 이유는 bodyToMono / bodyToFlux 할 경우 reactor 스레드로 전환된다.
-
