@@ -1,4 +1,4 @@
-package com.kakao.hotire.schedulerconversion.web;
+package com.github.hotire.schedulerconversion.web;
 
 import java.util.function.Consumer;
 import org.springframework.web.reactive.function.server.HandlerFilterFunction;
@@ -10,7 +10,7 @@ import reactor.core.publisher.MonoSink;
 import reactor.core.scheduler.Schedulers;
 
 /**
- *  선언적으로 reactor thread -> elastic 으로 스레드 전환
+ *  선언적으로 reactor thread, elastic 으로 스레드 전환
  */
 public class SchedulerConversionFilterFunction implements
   HandlerFilterFunction<ServerResponse, ServerResponse> {

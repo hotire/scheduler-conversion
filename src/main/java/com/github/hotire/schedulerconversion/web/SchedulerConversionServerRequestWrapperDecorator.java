@@ -1,4 +1,4 @@
-package com.kakao.hotire.schedulerconversion.web;
+package com.github.hotire.schedulerconversion.web;
 
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.web.reactive.function.server.ServerRequest;

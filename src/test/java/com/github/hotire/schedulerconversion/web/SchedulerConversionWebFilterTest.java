@@ -1,8 +1,8 @@
-package com.kakao.hotire.schedulerconversion.web;
+package com.github.hotire.schedulerconversion.web;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.kakao.hotire.schedulerconversion.config.Mode;
+import com.github.hotire.schedulerconversion.config.Mode;
 import java.util.ArrayList;
 import java.util.Collections;
 import org.junit.Test;

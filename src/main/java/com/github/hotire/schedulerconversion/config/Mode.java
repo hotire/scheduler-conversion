@@ -1,4 +1,4 @@
-package com.kakao.hotire.schedulerconversion.config;
+package com.github.hotire.schedulerconversion.config;
 
 public enum Mode {
   INCLUDE, EXCLUDE;

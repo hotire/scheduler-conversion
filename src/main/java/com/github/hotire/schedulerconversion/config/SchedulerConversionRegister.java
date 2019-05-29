@@ -1,8 +1,8 @@
-package com.kakao.hotire.schedulerconversion.config;
+package com.github.hotire.schedulerconversion.config;
 
 import static java.util.stream.Collectors.toList;
 
-import com.kakao.hotire.schedulerconversion.web.SchedulerConversionWebFilter;
+import com.github.hotire.schedulerconversion.web.SchedulerConversionWebFilter;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;

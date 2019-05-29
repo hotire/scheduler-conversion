@@ -1,6 +1,6 @@
-package com.kakao.hotire.schedulerconversion.web;
+package com.github.hotire.schedulerconversion.web;
 
-import com.kakao.hotire.schedulerconversion.config.Mode;
+import com.github.hotire.schedulerconversion.config.Mode;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.server.RequestPath;
@@ -13,7 +13,7 @@ import reactor.core.scheduler.Schedulers;
 
 /**
  *  리엑터 스레드는 소중하다.
- *  reactor thread -> elastic 으로 스레드 전환
+ *  reactor thread, elastic 으로 스레드 전환
  */
 @Slf4j
 public class SchedulerConversionWebFilter implements WebFilter {
