@@ -16,7 +16,7 @@ public class SchedulerConversionWebExchangeDecorator extends ServerWebExchangeDe
   @Override
   public <T> T getRequiredAttribute(String name) {
     if (RouterFunctions.REQUEST_ATTRIBUTE.equals(name)) {
-      ServerRequest serverRequest = super.getRequiredAttribute(name);
+      ServerRequest serverRequest = getDelegate().getRequiredAttribute(name);
       return (T) new SchedulerConversionServerRequestWrapperDecorator(serverRequest);
     }
     return super.getRequiredAttribute(name);
