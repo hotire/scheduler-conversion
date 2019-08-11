@@ -22,7 +22,9 @@ public class SchedulerConversionRegister implements ImportBeanDefinitionRegistra
   EnvironmentAware {
 
   private static final String PATTERNS_KEY = "scheduler.conversion.patterns";
+
   private static final String MODE_KEY = "scheduler.conversion.mode";
+
   private Environment environment;
 
   @Override
