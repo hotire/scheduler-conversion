@@ -25,6 +25,7 @@ public class SchedulerConversionWebFilterTest {
     final ServerWebExchange serverWebExchange = this.getMockServerWebExchange("/api");
 
     final FilteringWebHandler filteringWebHandler = new FilteringWebHandler(exchange -> {
+      assertThat(exchange).isInstanceOf(SchedulerConversionWebExchangeDecorator.class);
       assertThat(threadName).isNotEqualTo(Thread.currentThread().getName());
       return Mono.empty();
       }, new ArrayList<>(Collections.singletonList(schedulerConversionWebFilter))
@@ -41,6 +42,7 @@ public class SchedulerConversionWebFilterTest {
     final ServerWebExchange serverWebExchange = this.getMockServerWebExchange("/test");
 
     final FilteringWebHandler filteringWebHandler = new FilteringWebHandler(exchange -> {
+      assertThat(exchange).isNotInstanceOf(SchedulerConversionWebExchangeDecorator.class);
       assertThat(threadName).isEqualTo(Thread.currentThread().getName());
       return Mono.empty();
       }, new ArrayList<>(Collections.singletonList(schedulerConversionWebFilter))
@@ -57,6 +59,7 @@ public class SchedulerConversionWebFilterTest {
     final ServerWebExchange serverWebExchange = this.getMockServerWebExchange("/test");
 
     final FilteringWebHandler filteringWebHandler = new FilteringWebHandler(exchange -> {
+      assertThat(exchange).isInstanceOf(SchedulerConversionWebExchangeDecorator.class);
       assertThat(threadName).isNotEqualTo(Thread.currentThread().getName());
       return Mono.empty();
       }, new ArrayList<>(Collections.singletonList(schedulerConversionWebFilter))
@@ -73,6 +76,7 @@ public class SchedulerConversionWebFilterTest {
     final ServerWebExchange serverWebExchange = this.getMockServerWebExchange("/api");
 
     final FilteringWebHandler filteringWebHandler = new FilteringWebHandler(exchange -> {
+      assertThat(exchange).isNotInstanceOf(SchedulerConversionWebExchangeDecorator.class);
       assertThat(threadName).isEqualTo(Thread.currentThread().getName());
       return Mono.empty();
     }, new ArrayList<>(Collections.singletonList(schedulerConversionWebFilter))
