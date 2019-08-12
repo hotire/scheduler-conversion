@@ -1,6 +1,7 @@
 package com.github.hotire.schedulerconversion.web;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -23,7 +24,7 @@ public class SchedulerConversionFilterFunctionTest {
 
     // When
     final Mono<ServerResponse> responseMono = filterFunction.filter(serverRequest, request -> {
-      Assertions.assertThat(request).isInstanceOf(SchedulerConversionServerRequestWrapperDecorator.class);
+      assertThat(request).isInstanceOf(SchedulerConversionServerRequestWrapperDecorator.class);
       return ServerResponse.ok().build();
     });
 

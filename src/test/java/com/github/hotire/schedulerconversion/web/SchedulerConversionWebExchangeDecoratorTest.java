@@ -1,9 +1,9 @@
 package com.github.hotire.schedulerconversion.web;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 import static org.springframework.web.reactive.function.server.RouterFunctions.REQUEST_ATTRIBUTE;
 
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -31,6 +31,6 @@ public class SchedulerConversionWebExchangeDecoratorTest {
     final ServerRequest request = decorator.getRequiredAttribute(REQUEST_ATTRIBUTE);
 
     // Then
-    Assertions.assertThat(request).isInstanceOf(SchedulerConversionServerRequestWrapperDecorator.class);
+    assertThat(request).isInstanceOf(SchedulerConversionServerRequestWrapperDecorator.class);
   }
 }
