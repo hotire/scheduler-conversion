@@ -26,7 +26,7 @@ public class ModeTest {
     final String modeName = "exclude";
 
     // When
-    final Mode mode = Mode.valueOf(modeName);
+    final Mode mode = Mode.lookup(modeName);
 
     // Then
     assertThat(mode).isEqualTo(Mode.EXCLUDE);
