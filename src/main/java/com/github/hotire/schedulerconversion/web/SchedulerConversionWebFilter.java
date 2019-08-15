@@ -24,10 +24,9 @@ public class SchedulerConversionWebFilter implements WebFilter {
 
   @Override
   public Mono<Void> filter(ServerWebExchange exchange, WebFilterChain chain) {
-
     final RequestPath path = exchange.getRequest().getPath();
-    if (this.matchPathPatterns(path)) {
-      SchedulerConversionWebExchangeDecorator serverWebExchangeDecorator = new SchedulerConversionWebExchangeDecorator(exchange);
+    if (matchPathPatterns(path)) {
+      ServerWebExchange serverWebExchangeDecorator = new SchedulerConversionWebExchangeDecorator(exchange);
       return chain.filter(serverWebExchangeDecorator).subscribeOn(Schedulers.elastic());
     }
     return chain.filter(exchange);
