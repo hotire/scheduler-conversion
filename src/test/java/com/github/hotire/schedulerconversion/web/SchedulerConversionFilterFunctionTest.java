@@ -15,7 +15,7 @@ import reactor.test.StepVerifier;
 public class SchedulerConversionFilterFunctionTest {
 
   @Mock
-  ServerRequest serverRequest;
+  private ServerRequest serverRequest;
 
   @Test
   public void filter() {

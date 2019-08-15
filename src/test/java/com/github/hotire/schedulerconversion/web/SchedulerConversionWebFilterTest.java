@@ -19,12 +19,15 @@ public class SchedulerConversionWebFilterTest {
 
   @Test
   public void convert_scheduler_include_mode_contain_pattern() {
+    // Given
     final SchedulerConversionWebFilter schedulerConversionWebFilter =
       this.getSchedulerConversionWebFilter("/api", Mode.INCLUDE);
     final String threadName = Thread.currentThread().getName();
     final ServerWebExchange serverWebExchange = this.getMockServerWebExchange("/api");
 
+    // When
     final FilteringWebHandler filteringWebHandler = new FilteringWebHandler(exchange -> {
+      // Then
       assertThat(exchange).isInstanceOf(SchedulerConversionWebExchangeDecorator.class);
       assertThat(threadName).isNotEqualTo(Thread.currentThread().getName());
       return Mono.empty();
@@ -36,12 +39,15 @@ public class SchedulerConversionWebFilterTest {
 
   @Test
   public void maintain_scheduler_include_mode_not_contain_pattern() {
+    // Given
     final SchedulerConversionWebFilter schedulerConversionWebFilter =
       this.getSchedulerConversionWebFilter("/api", Mode.INCLUDE);
     final String threadName = Thread.currentThread().getName();
     final ServerWebExchange serverWebExchange = this.getMockServerWebExchange("/test");
 
+    // When
     final FilteringWebHandler filteringWebHandler = new FilteringWebHandler(exchange -> {
+      // Then
       assertThat(exchange).isNotInstanceOf(SchedulerConversionWebExchangeDecorator.class);
       assertThat(threadName).isEqualTo(Thread.currentThread().getName());
       return Mono.empty();
@@ -53,12 +59,15 @@ public class SchedulerConversionWebFilterTest {
 
   @Test
   public void convert_scheduler_exclude_mode_not_contain_pattern() {
+    // Given
     final SchedulerConversionWebFilter schedulerConversionWebFilter =
       this.getSchedulerConversionWebFilter("/api", Mode.EXCLUDE);
     final String threadName = Thread.currentThread().getName();
     final ServerWebExchange serverWebExchange = this.getMockServerWebExchange("/test");
 
+    // When
     final FilteringWebHandler filteringWebHandler = new FilteringWebHandler(exchange -> {
+      // Then
       assertThat(exchange).isInstanceOf(SchedulerConversionWebExchangeDecorator.class);
       assertThat(threadName).isNotEqualTo(Thread.currentThread().getName());
       return Mono.empty();
@@ -70,12 +79,15 @@ public class SchedulerConversionWebFilterTest {
 
   @Test
   public void maintain_scheduler_exclude_mode_contain_pattern() {
+    // Given
     final SchedulerConversionWebFilter schedulerConversionWebFilter =
       this.getSchedulerConversionWebFilter("/api", Mode.EXCLUDE);
     final String threadName = Thread.currentThread().getName();
     final ServerWebExchange serverWebExchange = this.getMockServerWebExchange("/api");
 
+    // When
     final FilteringWebHandler filteringWebHandler = new FilteringWebHandler(exchange -> {
+      // Then
       assertThat(exchange).isNotInstanceOf(SchedulerConversionWebExchangeDecorator.class);
       assertThat(threadName).isEqualTo(Thread.currentThread().getName());
       return Mono.empty();

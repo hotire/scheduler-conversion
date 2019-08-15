@@ -15,10 +15,10 @@ import org.springframework.web.server.ServerWebExchange;
 public class SchedulerConversionWebExchangeDecoratorTest {
 
   @Mock
-  ServerWebExchange serverWebExchange;
+  private ServerWebExchange serverWebExchange;
 
   @Mock
-  ServerRequest serverRequest;
+  private ServerRequest serverRequest;
 
   @Test
   public void getRequiredAttribute() {
