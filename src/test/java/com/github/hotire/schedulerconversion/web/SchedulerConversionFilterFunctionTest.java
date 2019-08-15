@@ -24,11 +24,11 @@ public class SchedulerConversionFilterFunctionTest {
 
     // When
     final Mono<ServerResponse> responseMono = filterFunction.filter(serverRequest, request -> {
+      // Then
       assertThat(request).isInstanceOf(SchedulerConversionServerRequestWrapperDecorator.class);
       return ServerResponse.ok().build();
     });
 
-    // Then
     StepVerifier.create(responseMono)
       .expectNextMatches(serverResponse -> serverResponse.statusCode().is2xxSuccessful())
       .verifyComplete();
