@@ -21,11 +21,11 @@ import org.springframework.web.util.pattern.PathPatternParser;
 public class SchedulerConversionRegister implements ImportBeanDefinitionRegistrar,
   EnvironmentAware {
 
-  private static final String PATTERNS_KEY = "scheduler.conversion.patterns";
+  protected static final String PATTERNS_KEY = "scheduler.conversion.patterns";
 
-  private static final String MODE_KEY = "scheduler.conversion.mode";
+  protected static final String MODE_KEY = "scheduler.conversion.mode";
 
-  private Environment environment;
+  protected Environment environment;
 
   @Override
   public void registerBeanDefinitions(AnnotationMetadata annotationMetadata,
@@ -37,15 +37,15 @@ public class SchedulerConversionRegister implements ImportBeanDefinitionRegistra
     mpv.addPropertyValue("pathPatterns", this.getPatterns());
     genericBeanDefinition.setPropertyValues(mpv);
 
-    beanDefinitionRegistry.registerBeanDefinition("schedulerConversionWebFilter", genericBeanDefinition);
+    beanDefinitionRegistry.registerBeanDefinition(SchedulerConversionWebFilter.class.getSimpleName(), genericBeanDefinition);
   }
 
-  private Mode getMode() {
+  protected Mode getMode() {
     final String mode = Optional.ofNullable(environment.getProperty(MODE_KEY)).orElse(Mode.INCLUDE.name());
     return Mode.lookup(mode);
   }
 
-  private List<PathPattern> getPatterns() {
+  protected List<PathPattern> getPatterns() {
     final String patterns = Optional.ofNullable(environment.getProperty(PATTERNS_KEY)).orElse(Strings.EMPTY);
     return Arrays.stream(patterns.split(","))
       .map(String::trim)
@@ -54,7 +54,7 @@ public class SchedulerConversionRegister implements ImportBeanDefinitionRegistra
       .collect(toList());
   }
 
-  private GenericBeanDefinition createBean(@Nullable Class<?> beanClass) {
+  protected GenericBeanDefinition createBean(@Nullable Class<?> beanClass) {
     final GenericBeanDefinition genericBeanDefinition = new GenericBeanDefinition();
     genericBeanDefinition.setBeanClass(beanClass);
     return genericBeanDefinition;
