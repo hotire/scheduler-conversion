@@ -4,6 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 import static org.springframework.web.reactive.function.server.RouterFunctions.REQUEST_ATTRIBUTE;
 
+import java.util.HashMap;
+import java.util.Map;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -21,7 +23,7 @@ public class SchedulerConversionWebExchangeDecoratorTest {
   private ServerRequest serverRequest;
 
   @Test
-  public void getRequiredAttribute() {
+  public void getRequiredAttribute_REQUEST_ATTRIBUTE() {
     // Given
     final SchedulerConversionWebExchangeDecorator decorator = new SchedulerConversionWebExchangeDecorator(serverWebExchange);
 
@@ -32,5 +34,25 @@ public class SchedulerConversionWebExchangeDecoratorTest {
 
     // Then
     assertThat(request).isInstanceOf(SchedulerConversionServerRequestWrapperDecorator.class);
+  }
+
+  @Test
+  public void getRequiredAttribute_not_REQUEST_ATTRIBUTE() {
+    // Given
+    final SchedulerConversionWebExchangeDecorator decorator = new SchedulerConversionWebExchangeDecorator(serverWebExchange);
+    final String attribute = "attribute";
+
+    final Map<String, Object> mockMap = new HashMap<>();
+    mockMap.put(attribute, new Object());
+
+    // When
+    when(serverWebExchange.getAttributes())
+      .thenReturn(mockMap);
+
+    final Object request = decorator.getRequiredAttribute(attribute);
+
+    // Then
+    assertThat(REQUEST_ATTRIBUTE).isNotEqualTo(attribute);
+    assertThat(request).isNotInstanceOf(SchedulerConversionServerRequestWrapperDecorator.class);
   }
 }
