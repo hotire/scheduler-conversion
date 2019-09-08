@@ -14,7 +14,7 @@
 <dependency>
   <groupId>com.github.hotire</groupId>
   <artifactId>scheduler-conversion</artifactId>
-  <version>0.0.7</version>
+  <version>0.0.8</version>
 </dependency>
 ```
 
