@@ -26,6 +26,13 @@ public class SchedulerConversionRegisterTest {
   private AnnotationMetadata annotationMetadata;
 
   @Test
+  public void createBean() {
+    final SchedulerConversionRegister register = new SchedulerConversionRegister();
+    final GenericBeanDefinition genericBeanDefinition = register.createBean(String.class);
+    assertThat(genericBeanDefinition.getBeanClass()).isEqualTo(String.class);
+  }
+
+  @Test
   public void registerBeanDefinitions() {
     // Given
     final BeanDefinitionRegistry beanDefinitionRegistry = new GenericApplicationContext();
