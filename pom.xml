@@ -50,6 +50,11 @@
       <artifactId>reactor-test</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>com.google.code.findbugs</groupId>
+      <artifactId>annotations</artifactId>
+      <version>3.0.1</version>
+    </dependency>
   </dependencies>
 
   <licenses>
@@ -133,7 +138,7 @@
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.8.4</version>
+        <version>0.8.2</version>
         <executions>
           <execution>
             <goals>
@@ -151,5 +156,4 @@
       </plugin>
     </plugins>
   </build>
-
 </project>
