@@ -11,10 +11,7 @@ import org.springframework.web.util.pattern.PathPattern;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
-/**
- *  리엑터 스레드는 소중하다.
- *  reactor thread, elastic 으로 스레드 전환
- */
+
 @Slf4j
 public class SchedulerConversionWebFilter implements WebFilter {
 
