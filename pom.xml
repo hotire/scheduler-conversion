@@ -11,7 +11,7 @@
   </parent>
   <groupId>com.github.hotire</groupId>
   <artifactId>scheduler-conversion</artifactId>
-  <version>0.0.8</version>
+  <version>1.0.0</version>
   <name>scheduler-conversion</name>
   <description>Convert reactor thread into elastic thread</description>
   <url>https://github.com/hotire/scheduler-conversion</url>
@@ -49,6 +49,11 @@
       <groupId>io.projectreactor</groupId>
       <artifactId>reactor-test</artifactId>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.findbugs</groupId>
+      <artifactId>annotations</artifactId>
+      <version>3.0.1</version>
     </dependency>
   </dependencies>
 
@@ -133,7 +138,7 @@
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.8.4</version>
+        <version>0.8.2</version>
         <executions>
           <execution>
             <goals>
@@ -151,5 +156,4 @@
       </plugin>
     </plugins>
   </build>
-
 </project>

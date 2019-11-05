@@ -9,9 +9,6 @@ import reactor.core.publisher.Mono;
 import reactor.core.publisher.MonoSink;
 import reactor.core.scheduler.Schedulers;
 
-/**
- *  선언적으로 reactor thread, elastic 으로 스레드 전환
- */
 public class SchedulerConversionFilterFunction implements
   HandlerFilterFunction<ServerResponse, ServerResponse> {
 
