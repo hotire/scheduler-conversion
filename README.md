@@ -10,7 +10,7 @@
 
 ### Maven
 
-```
+```xml
 <repository>
   <id>hotire</id>
   <url>http://dl.bintray.com/hotire/utils</url>
@@ -27,7 +27,7 @@
 
 ### @EnableSchedulerConversion
 
-```
+```java
 @EnableSchedulerConversion
 @SpringBootApplication
 public class Application {
@@ -40,7 +40,7 @@ public class Application {
 
 ### application.yml
 
-```
+```yml
 scheduler.conversion:
   mode: include
   patterns: '/api/**, /batch/**'
@@ -79,7 +79,7 @@ reactor 스레드를 elastic 스레드로 전환 시키는 FilterFunction (제�
 
 또한 ServerWebExchange 객체를 SchedulerConversionServerRequestWrapperDecorator로 전환한다.
 
-~~~
+~~~java
   @Bean
   public RouterFunction<ServerResponse> hello(HelloHandler handler) {
     return route(GET("/hello"), handler::hello)
@@ -93,7 +93,7 @@ reactor 스레드를 elastic 스레드로 전환 시키는 FilterFunction (제�
 
 기존 ServerWebExchange 객체를 감싸서 데코레이터 한다.
 
-```
+```java
 public interface ServerWebExchange {
   default <T> T getRequiredAttribute(String name) {
     T value = getAttribute(name);
@@ -109,7 +109,7 @@ getRequiredAttribute 메서드를 오버라이딩 한다.
 
 기존 ServerRequest 객체를 감싸서 데코레이터 한다.
 
-```
+```java
 public interface ServerRequest {
   <T> Mono<T> bodyToMono(Class<? extends T> elementClass);
   <T> Mono<T> bodyToMono(ParameterizedTypeReference<T> typeReference);
